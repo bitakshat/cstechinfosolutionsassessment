@@ -26,8 +26,6 @@ mongoose
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
-
-
 // app.use("/", require("./routes/userRoutes"));
 
 app.post('/api/users/login', async (req, res) => {
