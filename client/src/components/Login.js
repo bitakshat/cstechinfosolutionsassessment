@@ -12,15 +12,10 @@ const Login = () => {
         e.preventDefault();
         try {
             const { data } = await axios.post("http://localhost:5001/api/users/login", {
-                email: 'admin@example.com',
-                password: 'password123'
-            },
-                {
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                }
-            );
+                email: email, // use dynamic email
+                password: password // use dynamic password
+            }, { headers: { 'Content-Type': 'application/json' } });
+
             localStorage.setItem("token", data.token);
             navigate("/dashboard");
         } catch (err) {

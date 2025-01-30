@@ -1,4 +1,4 @@
-import jwt from "jsonwebtoken";
+const jwt = require("jsonwebtoken");
 
 const authMiddleware = (req, res, next) => {
     const token = req.header("Authorization");
@@ -13,4 +13,12 @@ const authMiddleware = (req, res, next) => {
     }
 };
 
-export default authMiddleware;
+const authorizeAdmin = (req, res, next) => {
+    if (req.user.role !== "admin") {
+        return res.status(403).json({ message: "Access Forbidden: Admins Only" });
+    }
+    next();
+};
+
+module.exports = { authMiddleware, authorizeAdmin }
+// export default authMiddleware;

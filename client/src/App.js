@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-d
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
 import { isAuthenticated } from "./utils/auth";
+import AgentLogin from "./components/AgentLogin";
+import AgentDashboard from "./components/AgentDashboard";
 
 const App = () => {
   return (
@@ -9,6 +11,8 @@ const App = () => {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={isAuthenticated() ? <Dashboard /> : <Navigate to="/login" />} />
+        <Route path="/agent-login" element={<AgentLogin />} />
+        <Route path="/agent-dashboard" element={<AgentDashboard />} />
       </Routes>
     </Router>
   );
