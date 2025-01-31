@@ -4,10 +4,12 @@ import Dashboard from "./components/Dashboard";
 import { isAuthenticated } from "./utils/auth";
 import AgentLogin from "./components/AgentLogin";
 import AgentDashboard from "./components/AgentDashboard";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
     <Router>
+      <Navbar />
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={isAuthenticated() ? <Dashboard /> : <Navigate to="/login" />} />
