@@ -1,4 +1,5 @@
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
+import mongoose from "mongoose";
 // const bcrypt = require("bcryptjs");
 
 
@@ -25,4 +26,6 @@ const agentSchema = new mongoose.Schema({
 //     next();
 // });
 
-module.exports = mongoose.model("Agent", agentSchema, "agents");
+const Agent = mongoose.model("Agent", agentSchema);
+export default Agent; // ✅ Fix: Exporting as default
+// module.exports = mongoose.model("Agent", agentSchema, "agents");

@@ -1,21 +1,12 @@
-// const express = require("express");
-// const mongoose = require("mongoose");
-// const dotenv = require("dotenv");
-// const cors = require("cors");
-// const bcrypt = require("bcryptjs");
-// const User = require("./models/User");
-// const jwt = require("jsonwebtoken");
-// const Agent = require('./models/Agent')
-// const agentRoutes = require("./routes/agentRoutes");
-
 import agentRoutes from './routes/agentRoutes.js';
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
-import User from "./models/User.js";
+import { User } from "./models/User.js";
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+
 
 dotenv.config(); // Load environment variables
 
@@ -80,7 +71,7 @@ app.post('/api/users/login', async (req, res) => {
         const token = jwt.sign(
             { id: user._id, role: user.role },
             JWT_SECRET,
-            { expiresIn: "1h" }
+            { expiresIn: "2h" }
         );
 
         res.json({
