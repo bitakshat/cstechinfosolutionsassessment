@@ -24,30 +24,6 @@ const AgentLogin = () => {
 
     return (
         <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-            {/* <div className="bg-white p-6 rounded-lg shadow-md w-96">
-                <h2 className="text-2xl font-semibold text-center mb-4">Agent Login</h2>
-                {error && <p className="text-red-500 text-sm text-center">{error}</p>}
-                <form onSubmit={handleLogin}>
-                    <input
-                        type="email"
-                        placeholder="Email"
-                        className="w-full p-2 border rounded mb-2"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                    <input
-                        type="password"
-                        placeholder="Password"
-                        className="w-full p-2 border rounded mb-2"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                    <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600">
-                        Login
-                    </button>
-                </form>
-            </div> */}
-
             <div class="w-full bg-white rounded-lg shadow  md:mt-0 sm:max-w-md xl:p-0 border-gray-900">
                 {error && <p className="text-[14px] text-red-500">{error}</p>}
                 <div class="p-6 space-y-4 md:space-y-6 sm:p-8">

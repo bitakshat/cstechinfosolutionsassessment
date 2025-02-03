@@ -1,5 +1,6 @@
 // const mongoose = require("mongoose");
 import mongoose from "mongoose";
+import bcrypt from 'bcryptjs';
 // const bcrypt = require("bcryptjs");
 
 
@@ -19,12 +20,12 @@ const agentSchema = new mongoose.Schema({
 });
 
 // Hash password before saving
-// agentSchema.pre("save", async function (next) {
-//     if (!this.isModified("password")) return next();
-//     const salt = await bcrypt.genSalt(10);
-//     this.password = await bcrypt.hash(this.password, salt);
-//     next();
-// });
+agentSchema.pre("save", async function (next) {
+    if (!this.isModified("password")) return next();
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, salt);
+    next();
+});
 
 const Agent = mongoose.model("Agent", agentSchema);
 export default Agent; // ✅ Fix: Exporting as default

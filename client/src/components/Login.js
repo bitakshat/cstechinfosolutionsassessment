@@ -35,8 +35,6 @@ const Login = () => {
                 { headers: { "Content-Type": "application/json" } }
             );
 
-            console.log("Login successful:", data);
-
             if (data.token) {
                 localStorage.setItem("token", data.token);
                 console.log("Token saved, navigating to dashboard...");
